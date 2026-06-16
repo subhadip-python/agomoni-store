@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products - Agomoni Store</title>
+
+<style>
+:root {
+    --primary-gradient: linear-gradient(135deg, #7f00ff, #e100ff);
+    --secondary-gradient: linear-gradient(135deg, #11998e, #38ef7d);
+    --dark-bg: #0f172a;
+    --light-bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body{
+    background: var(--light-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header & Premium Logo */
+header{
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: var(--shadow-sm);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-badge {
+    background: var(--primary-gradient);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: -1px;
+    box-shadow: 0 4px 10px rgba(127, 0, 255, 0.3);
+}
+
+.logo-text {
+    font-size: 22px;
+    font-weight: 700;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a{
+    color: var(--text-main);
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: var(--primary-gradient);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Coming Soon Main Content Area */
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 8%;
+    background: radial-gradient(circle at top right, rgba(225, 0, 255, 0.04), transparent), 
+                radial-gradient(circle at bottom left, rgba(127, 0, 255, 0.04), transparent);
+}
+
+.coming-soon-container {
+    text-align: center;
+    background: white;
+    padding: 60px 40px;
+    border-radius: 30px;
+    box-shadow: var(--shadow-lg);
+    max-width: 650px;
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.01);
+    transition: transform 0.3s ease;
+}
+
+.coming-soon-container:hover {
+    transform: translateY(-5px);
+}
+
+.icon-box {
+    width: 90px;
+    height: 90px;
+    background: rgba(127, 0, 255, 0.06);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    margin: 0 auto 30px auto;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(127, 0, 255, 0.2); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(127, 0, 255, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(127, 0, 255, 0); }
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(225, 0, 255, 0.1);
+    color: #e100ff;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+    color: #0f172a;
+}
+
+h1 span {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.coming-soon-container p {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 35px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn{
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 30px;
+    background: var(--primary-gradient);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(127, 0, 255, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btn:hover, .btn:active {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(127, 0, 255, 0.3);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--text-main);
+    border: 2px solid #e2e8f0;
+    box-shadow: none;
+}
+
+.btn-secondary:hover, .btn-secondary:active {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Footer */
+footer{
+    background: var(--dark-bg);
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Responsive Styles */
+@media(max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    
+    nav a {
+        margin: 0 10px;
+        font-size: 14px;
+    }
+
+    main {
+        padding: 40px 20px;
+    }
+
+    .coming-soon-container {
+        padding: 40px 20px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+    
+    .coming-soon-container p {
+        font-size: 15px;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <!-- মূল হোম পেজে ফিরে যাওয়ার লিংক হিসেবে কাজ করবে -->
+    <a href="index.html" class="logo-container">
+        <div class="logo-badge">AS</div>
+        <div class="logo-text">Agomoni Store</div>
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="#" style="background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Products</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <div class="coming-soon-container">
+        <div class="badge">Exclusive Collection</div>
+        <div class="icon-box">🛍️</div>
+        <h1>Our Products Are <span>Coming Soon</span></h1>
+        <p>আমরা আমাদের প্রিমিয়াম গিফট আইটেম, হ্যান্ডমেড ক্রাফটস এবং এক্সক্লুসিভ কালেকশন নিয়ে খুব শীঘ্রই হাজির হচ্ছি। চোখ রাখুন!</p>
+        
+        <div class="btn-group">
+            <a href="index.html" class="btn">Back to Home</a>
+            <a href="index.html#contact" class="btn btn-secondary">Contact Us</a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    © 2026 Agomoni Store | Design Crafted with Premium Elegance
+</footer>
+
+</body>
+</html>
