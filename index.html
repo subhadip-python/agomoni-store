@@ -6,130 +6,460 @@
 <title>Agomoni Store</title>
 
 <style>
-*{
-
-
-nav a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-font-weight:bold;
+:root {
+    --primary-gradient: linear-gradient(135deg, #7f00ff, #e100ff);
+    --secondary-gradient: linear-gradient(135deg, #11998e, #38ef7d);
+    --dark-bg: #0f172a;
+    --light-bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body{
+    background: var(--light-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* Header & Premium Logo */
+header{
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: var(--shadow-sm);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-badge {
+    background: var(--primary-gradient);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: -1px;
+    box-shadow: 0 4px 10px rgba(127, 0, 255, 0.3);
+}
+
+.logo-text {
+    font-size: 22px;
+    font-weight: 700;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a{
+    color: var(--text-main);
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: var(--primary-gradient);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Hero Section */
 .hero{
-padding:100px 8%;
-text-align:center;
-background:white;
+    padding: 120px 8% 80px 8%;
+    text-align: center;
+    background: radial-gradient(circle at top right, rgba(225, 0, 255, 0.05), transparent), 
+                radial-gradient(circle at bottom left, rgba(127, 0, 255, 0.05), transparent),
+                white;
+    border-bottom: 1px solid rgba(0,0,0,0.02);
 }
 
 .hero h1{
-font-size:50px;
-margin-bottom:15px;
+    font-size: 54px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+    color: #0f172a;
+}
+
+.hero h1 span {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero p{
-font-size:20px;
-margin-bottom:30px;
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-bottom: 35px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .btn{
-display:inline-block;
-padding:12px 25px;
-background:#2575fc;
-color:white;
-text-decoration:none;
-border-radius:8px;
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 32px;
+    background: var(--primary-gradient);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(127, 0, 255, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
 }
 
+/* Touch & Hover Option */
+.btn:hover, .btn:active {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(127, 0, 255, 0.3);
+}
+
+/* Sections Global */
 section{
-padding:70px 8%;
+    padding: 90px 8%;
 }
 
 .section-title{
-text-align:center;
-font-size:35px;
-margin-bottom:40px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    position: relative;
 }
 
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-gradient);
+    margin: 12px auto 0 auto;
+    border-radius: 2px;
+}
+
+/* About Section */
 .about{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:30px;
-align-items:center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-img-wrapper {
+    position: relative;
+}
+
+.about-img-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    background: var(--primary-gradient);
+    z-index: -1;
+    opacity: 0.15;
 }
 
 .about img{
-width:100%;
-border-radius:15px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    object-fit: cover;
 }
 
+.about h3{
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.about p{
+    color: var(--text-muted);
+    font-size: 16px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.feature-item {
+    background: white;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-left: 3px solid #7f00ff;
+}
+
+/* Products Cards */
 .products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 .card{
-background:white;
-padding:15px;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,.1);
+    background: var(--card-bg);
+    padding: 0;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0,0,0,0.03);
+    cursor: pointer;
+}
+
+.card-img-container {
+    overflow: hidden;
+    height: 250px;
 }
 
 .card img{
-width:100%;
-height:220px;
-object-fit:cover;
-border-radius:10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card-body {
+    padding: 25px;
 }
 
 .card h3{
-margin-top:10px;
+    font-size: 20px;
+    margin-bottom: 8px;
+    font-weight: 700;
 }
 
+.card p{
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+/* Premium Touch / Active effects for Cards */
+.card:hover, .card:active {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card:hover img, .card:active img {
+    transform: scale(1.06);
+}
+
+/* Services Section */
 .services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 .service{
-background:white;
-padding:25px;
-border-radius:12px;
-text-align:center;
-box-shadow:0 4px 12px rgba(0,0,0,.1);
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.02);
 }
 
+.service:hover, .service:active {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(127, 0, 255, 0.2);
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(127, 0, 255, 0.08);
+    color: #7f00ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+    font-size: 24px;
+}
+
+.service h3{
+    font-size: 20px;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.service p{
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+/* Contact Section */
 .contact{
-text-align:center;
+    text-align: center;
+    background: white;
+    border-radius: 30px;
+    padding: 60px 40px;
+    box-shadow: var(--shadow-md);
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.contact a{
-display:inline-block;
-margin:10px;
-padding:12px 20px;
-background:#25D366;
-color:white;
-text-decoration:none;
-border-radius:8px;
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
 }
 
+.contact-info p {
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 35px;
+    background: var(--secondary-gradient);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 8px 20px rgba(56, 239, 125, 0.25);
+    transition: all 0.3s ease;
+}
+
+.whatsapp-btn:hover, .whatsapp-btn:active {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(56, 239, 125, 0.35);
+}
+
+/* Footer */
 footer{
-background:#222;
-color:white;
-text-align:center;
-padding:20px;
+    background: var(--dark-bg);
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-@media(max-width:768px){
-.about{
-grid-template-columns:1fr;
+/* Responsive Styles */
+@media(max-width: 992px){
+    header {
+        padding: 15px 5%;
+    }
+    section {
+        padding: 70px 5%;
+    }
 }
 
-.hero h1{
-font-size:35px;
-}
+@media(max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    
+    nav a {
+        margin: 0 10px;
+        font-size: 14px;
+    }
+
+    .hero {
+        padding: 80px 5% 60px 5%;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+    
+    .hero p {
+        font-size: 16px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info {
+        flex-direction: column;
+        gap: 15px;
+    }
 }
 </style>
 </head>
@@ -137,122 +467,128 @@ font-size:35px;
 <body>
 
 <header>
-<div class="logo">Agomoni Store</div>
+    <a href="#" class="logo-container">
+        <div class="logo-badge">AS</div>
+        <div class="logo-text">Agomoni Store</div>
+    </a>
 
-<nav>
-<a href="#about">About</a>
-<a href="#products">Products</a>
-<a href="#services">Services</a>
-<a href="#contact">Contact</a>
-</nav>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
 </header>
 
 <section class="hero">
-<h1>Welcome to Agomoni Store</h1>
-<p>Premium Gift Items, Handmade Crafts & Creative Products</p>
-
-<a href="#products" class="btn">View Products</a>
+    <h1>Welcome to <span>Agomoni Store</span></h1>
+    <p>Premium Gift Items, Handmade Crafts & Creative Products tailored with premium elegance.</p>
+    <a href="#products" class="btn">View Products</a>
 </section>
 
 <section id="about">
-<h2 class="section-title">About Us</h2>
+    <h2 class="section-title">About Us</h2>
 
-<div class="about">
+    <div class="about">
+        <div class="about-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=800" alt="Store">
+        </div>
 
-<img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=800" alt="Store">
+        <div>
+            <h3>Agomoni Store</h3>
+            <p>
+                Agomoni Store is a trusted destination for premium gift items,
+                fabric painting products, handmade crafts and custom creations.
+                Our goal is to provide quality products with creative designs that touch your soul.
+            </p>
 
-<div>
-<h3>Agomoni Store</h3>
-
-<p>
-Agomoni Store is a trusted destination for premium gift items,
-fabric painting products, handmade crafts and custom creations.
-Our goal is to provide quality products with creative designs.
-</p>
-
-<br>
-
-<p>
-✔ Quality Products<br>
-✔ Custom Orders<br>
-✔ Affordable Pricing<br>
-✔ Fast Delivery
-</p>
-
-</div>
-</div>
+            <div class="features-grid">
+                <div class="feature-item">✨ Quality Products</div>
+                <div class="feature-item">🎨 Custom Orders</div>
+                <div class="feature-item">💎 Affordable Pricing</div>
+                <div class="feature-item">🚀 Fast Delivery</div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section id="products">
-<h2 class="section-title">Our Products</h2>
+    <h2 class="section-title">Our Products</h2>
 
-<div class="products">
+    <div class="products">
+        <div class="card">
+            <div class="card-img-container">
+                <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600" alt="Gift Items">
+            </div>
+            <div class="card-body">
+                <h3>Gift Items</h3>
+                <p>Beautiful, curated gift collections for every celebration.</p>
+            </div>
+        </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600">
-<h3>Gift Items</h3>
-<p>Beautiful gift collections.</p>
-</div>
+        <div class="card">
+            <div class="card-img-container">
+                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600" alt="Fabric Painting">
+            </div>
+            <div class="card-body">
+                <h3>Fabric Painting</h3>
+                <p>Custom hand-painted aesthetic designs with pure premium fabrics.</p>
+            </div>
+        </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600">
-<h3>Fabric Painting</h3>
-<p>Custom hand-painted designs.</p>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1503602642458-232111445657?w=600">
-<h3>Handmade Crafts</h3>
-<p>Creative handmade products.</p>
-</div>
-
-</div>
+        <div class="card">
+            <div class="card-img-container">
+                <img src="https://images.unsplash.com/photo-1503602642458-232111445657?w=600" alt="Handmade Crafts">
+            </div>
+            <div class="card-body">
+                <h3>Handmade Crafts</h3>
+                <p>Unique, highly detailed creative handmade products.</p>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section id="services">
+    <h2 class="section-title">Our Services</h2>
 
-<h2 class="section-title">Our Services</h2>
+    <div class="services">
+        <div class="service">
+            <div class="service-icon">🎨</div>
+            <h3>Custom Orders</h3>
+            <p>Personalized gifts and crafts according to your choices.</p>
+        </div>
 
-<div class="services">
+        <div class="service">
+            <div class="service-icon">📦</div>
+            <h3>Bulk Orders</h3>
+            <p>Special premium pricing and attention for corporate or bulk purchases.</p>
+        </div>
 
-<div class="service">
-<h3>Custom Orders</h3>
-<p>Personalized gifts and crafts.</p>
-</div>
-
-<div class="service">
-<h3>Bulk Orders</h3>
-<p>Special pricing for bulk purchases.</p>
-</div>
-
-<div class="service">
-<h3>Home Delivery</h3>
-<p>Fast and reliable delivery service.</p>
-</div>
-
-</div>
-
+        <div class="service">
+            <div class="service-icon">🚚</div>
+            <h3>Home Delivery</h3>
+            <p>Fast, secured and reliable doorstep delivery service anywhere.</p>
+        </div>
+    </div>
 </section>
 
 <section id="contact">
+    <h2 class="section-title">Contact Us</h2>
 
-<h2 class="section-title">Contact Us</h2>
+    <div class="contact">
+        <div class="contact-info">
+            <p>📞 +91 9876543210</p>
+            <p>📧 info@agomonistore.com</p>
+        </div>
 
-<div class="contact">
-
-<p>📞 +91 9876543210</p>
-<p>📧 agomonistore@gmail.com</p>
-
-<a href="https://wa.me/919876543210">
-WhatsApp Order
-</a>
-
-</div>
-
+        <a href="https://wa.me/919876543210" class="whatsapp-btn">
+            💬 WhatsApp Order
+        </a>
+    </div>
 </section>
 
 <footer>
-© 2026 Agomoni Store | All Rights Reserved
+    © 2026 Agomoni Store | Design Crafted with Premium Elegance
 </footer>
 
 </body>
