@@ -1,595 +1,86 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agomoni Store</title>
-
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#641f25">
+<meta name="description" content="Agomoni Store — handcrafted gifts, terracotta jewellery and personalised creations.">
+<title>Agomoni Store | Crafted With Love</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
-:root {
-    --primary-gradient: linear-gradient(135deg, #7f00ff, #e100ff);
-    --secondary-gradient: linear-gradient(135deg, #11998e, #38ef7d);
-    --dark-bg: #0f172a;
-    --light-bg: #f8fafc;
-    --card-bg: #ffffff;
-    --text-main: #1e293b;
-    --text-muted: #64748b;
-    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    scroll-behavior: smooth;
-}
-
-body{
-    background: var(--light-bg);
-    color: var(--text-main);
-    line-height: 1.6;
-}
-
-/* Header & Premium Logo */
-header{
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    padding: 15px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: var(--shadow-sm);
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-}
-
-.logo-badge {
-    background: var(--primary-gradient);
-    color: white;
-    width: 45px;
-    height: 45px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 20px;
-    letter-spacing: -1px;
-    box-shadow: 0 4px 10px rgba(127, 0, 255, 0.3);
-}
-
-.logo-text {
-    font-size: 22px;
-    font-weight: 700;
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-}
-
-nav a{
-    color: var(--text-main);
-    text-decoration: none;
-    margin-left: 30px;
-    font-weight: 600;
-    font-size: 15px;
-    transition: color 0.3s ease;
-    position: relative;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background: var(--primary-gradient);
-    transition: width 0.3s ease;
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
-nav a:hover {
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* Hero Section */
-.hero{
-    padding: 120px 8% 80px 8%;
-    text-align: center;
-    background: radial-gradient(circle at top right, rgba(225, 0, 255, 0.05), transparent), 
-                radial-gradient(circle at bottom left, rgba(127, 0, 255, 0.05), transparent),
-                white;
-    border-bottom: 1px solid rgba(0,0,0,0.02);
-}
-
-.hero h1{
-    font-size: 54px;
-    font-weight: 800;
-    margin-bottom: 20px;
-    letter-spacing: -1px;
-    color: #0f172a;
-}
-
-.hero h1 span {
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero p{
-    font-size: 20px;
-    color: var(--text-muted);
-    margin-bottom: 35px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.btn{
-    display: inline-flex;
-    align-items: center;
-    padding: 14px 32px;
-    background: var(--primary-gradient);
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    box-shadow: 0 10px 20px rgba(127, 0, 255, 0.2);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-}
-
-/* Touch & Hover Option */
-.btn:hover, .btn:active {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 25px rgba(127, 0, 255, 0.3);
-}
-
-/* Sections Global */
-section{
-    padding: 90px 8%;
-}
-
-.section-title{
-    text-align: center;
-    font-size: 36px;
-    font-weight: 700;
-    margin-bottom: 50px;
-    position: relative;
-}
-
-.section-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: var(--primary-gradient);
-    margin: 12px auto 0 auto;
-    border-radius: 2px;
-}
-
-/* About Section */
-.about{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
-}
-
-.about-img-wrapper {
-    position: relative;
-}
-
-.about-img-wrapper::before {
-    content: '';
-    position: absolute;
-    top: -15px;
-    left: -15px;
-    width: 100%;
-    height: 100%;
-    border-radius: 24px;
-    background: var(--primary-gradient);
-    z-index: -1;
-    opacity: 0.15;
-}
-
-.about img{
-    width: 100%;
-    border-radius: 20px;
-    box-shadow: var(--shadow-lg);
-    object-fit: cover;
-}
-
-.about h3{
-    font-size: 28px;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.about p{
-    color: var(--text-muted);
-    font-size: 16px;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-top: 25px;
-}
-
-.feature-item {
-    background: white;
-    padding: 12px 18px;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 15px;
-    box-shadow: var(--shadow-sm);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-left: 3px solid #7f00ff;
-}
-
-/* Products Cards */
-.products{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.card{
-    background: var(--card-bg);
-    padding: 0;
-    border-radius: 20px;
-    box-shadow: var(--shadow-md);
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(0,0,0,0.03);
-    cursor: pointer;
-}
-
-.card-img-container {
-    overflow: hidden;
-    height: 250px;
-}
-
-.card img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.card-body {
-    padding: 25px;
-}
-
-.card h3{
-    font-size: 20px;
-    margin-bottom: 8px;
-    font-weight: 700;
-}
-
-.card p{
-    color: var(--text-muted);
-    font-size: 15px;
-}
-
-/* Premium Touch / Active effects for Cards */
-.card:hover, .card:active {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-}
-
-.card:hover img, .card:active img {
-    transform: scale(1.06);
-}
-
-/* Services Section */
-.services{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.service{
-    background: white;
-    padding: 40px 30px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0,0,0,0.02);
-}
-
-.service:hover, .service:active {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
-    border-color: rgba(127, 0, 255, 0.2);
-}
-
-.service-icon {
-    width: 60px;
-    height: 60px;
-    background: rgba(127, 0, 255, 0.08);
-    color: #7f00ff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px auto;
-    font-size: 24px;
-}
-
-.service h3{
-    font-size: 20px;
-    margin-bottom: 12px;
-    font-weight: 700;
-}
-
-.service p{
-    color: var(--text-muted);
-    font-size: 15px;
-}
-
-/* Contact Section */
-.contact{
-    text-align: center;
-    background: white;
-    border-radius: 30px;
-    padding: 60px 40px;
-    box-shadow: var(--shadow-md);
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.contact-info {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-bottom: 35px;
-    flex-wrap: wrap;
-}
-
-.contact-info p {
-    font-size: 16px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.whatsapp-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 15px 35px;
-    background: var(--secondary-gradient);
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 16px;
-    box-shadow: 0 8px 20px rgba(56, 239, 125, 0.25);
-    transition: all 0.3s ease;
-}
-
-.whatsapp-btn:hover, .whatsapp-btn:active {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(56, 239, 125, 0.35);
-}
-
-/* Footer */
-footer{
-    background: var(--dark-bg);
-    color: rgba(255, 255, 255, 0.6);
-    text-align: center;
-    padding: 30px;
-    font-size: 14px;
-    border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-/* Responsive Styles */
-@media(max-width: 992px){
-    header {
-        padding: 15px 5%;
-    }
-    section {
-        padding: 70px 5%;
-    }
-}
-
-@media(max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px 20px;
-    }
-    
-    nav a {
-        margin: 0 10px;
-        font-size: 14px;
-    }
-
-    .hero {
-        padding: 80px 5% 60px 5%;
-    }
-
-    .hero h1 {
-        font-size: 38px;
-    }
-    
-    .hero p {
-        font-size: 16px;
-    }
-
-    .about {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-info {
-        flex-direction: column;
-        gap: 15px;
-    }
-}
+:root{--wine:#641f25;--wine2:#842f35;--gold:#bd9652;--cream:#fbf6ef;--ink:#292321;--muted:#776d67;--line:#eadfd3;--white:#fff;--shadow:0 18px 55px #381b1712}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--cream);color:var(--ink);font-family:Poppins,sans-serif}body.lock{overflow:hidden}.bn{font-family:"Noto Serif Bengali",serif}.serif{font-family:"Playfair Display",serif}a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}.announcement{background:var(--wine);color:#fff;text-align:center;padding:9px 15px;font-size:11px;letter-spacing:1.1px}.top-progress{height:3px;background:var(--gold);width:0;position:fixed;top:0;left:0;z-index:1000}
+header{position:sticky;top:0;z-index:100;background:#fbf6eff0;backdrop-filter:blur(18px);border-bottom:1px solid #eadfd399}.nav{max-width:1200px;margin:auto;padding:0 24px;height:78px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:12px;color:var(--wine)}.brand-mark{width:43px;height:43px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:19px}.brand-name{font:600 25px "Playfair Display",serif;letter-spacing:.3px}.brand small{display:block;font:10px Poppins;letter-spacing:2.3px;color:var(--muted);margin-top:1px}.navlinks{display:flex;align-items:center;gap:30px;font-size:12px;font-weight:500}.navlinks a:hover{color:var(--wine2)}.nav-actions{display:flex;gap:9px;align-items:center}.icon-btn{width:39px;height:39px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--wine);position:relative}.count{position:absolute;right:-3px;top:-4px;background:var(--wine);color:white;border-radius:50%;font-size:9px;min-width:17px;height:17px;display:grid;place-items:center}.menu-btn{display:none}
+.hero{min-height:620px;display:grid;grid-template-columns:1.02fr .98fr;max-width:1200px;margin:auto;padding:62px 24px 75px;align-items:center;gap:40px}.eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;display:flex;align-items:center;gap:12px}.eyebrow:before{content:"";width:34px;height:1px;background:var(--gold)}h1{font:600 clamp(42px,5.5vw,68px)/1.13 "Playfair Display",serif;color:var(--wine);margin:22px 0}.hero h1 span{font-family:"Noto Serif Bengali";font-size:.72em;display:block;line-height:1.5;color:var(--ink)}.hero-copy p{max-width:470px;color:var(--muted);font-size:14px;line-height:2}.hero-buttons{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}.btn{border:1px solid var(--wine);padding:14px 23px;font-size:11px;letter-spacing:.8px;text-transform:uppercase;display:inline-flex;gap:10px;align-items:center;justify-content:center;transition:.25s}.btn.primary{background:var(--wine);color:white}.btn.primary:hover{background:var(--wine2);transform:translateY(-2px)}.btn.outline{color:var(--wine)}.btn.outline:hover{background:#641f250b}.hero-note{margin-top:32px;color:var(--muted);font-size:10px;letter-spacing:1px}.hero-art{height:490px;position:relative}.hero-photo{position:absolute;inset:0 30px 20px 30px;overflow:hidden;border-radius:48% 48% 8px 8px;background:#e9d7c5}.hero-photo img{width:100%;height:100%;object-fit:cover}.hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#2b15152b,transparent 45%)}.art-label{position:absolute;right:0;bottom:0;background:var(--white);padding:20px 25px;box-shadow:var(--shadow);color:var(--wine);font:italic 18px "Playfair Display"}.art-stamp{position:absolute;left:0;top:35px;width:100px;height:100px;border-radius:50%;background:var(--gold);color:white;display:grid;place-items:center;text-align:center;font:12px "Playfair Display";line-height:1.5;transform:rotate(-12deg);border:5px double #ffffff99}
+.trust{background:#fff;border-block:1px solid var(--line)}.trust-inner{max-width:1100px;margin:auto;padding:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.trust-item{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--wine)}.trust-item i{font-size:19px;color:var(--gold)}.trust-item strong{display:block;font-size:11px}.trust-item small{display:block;color:var(--muted);font-size:9px;margin-top:3px}
+section.content{max-width:1200px;margin:auto;padding:90px 24px}.section-head{text-align:center;margin-bottom:38px}.section-head .eyebrow{justify-content:center}.section-head .eyebrow:after{content:"";width:34px;height:1px;background:var(--gold)}h2{font:600 clamp(30px,4vw,43px) "Playfair Display",serif;color:var(--wine);margin:14px 0 7px}.section-head p{color:var(--muted);font-size:12px}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin:35px 0 25px;flex-wrap:wrap}.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{border:1px solid var(--line);background:transparent;padding:9px 15px;border-radius:30px;font-size:10px;color:var(--muted)}.filter.active,.filter:hover{background:var(--wine);color:white;border-color:var(--wine)}.searchbox{border:1px solid var(--line);background:white;padding:10px 14px;display:flex;gap:9px;align-items:center;min-width:230px}.searchbox input{border:0;outline:0;width:100%;font-size:11px}.products{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}.product{background:#fff;border:1px solid var(--line);transition:.3s;position:relative}.product:hover{transform:translateY(-6px);box-shadow:var(--shadow)}.product-image{height:290px;position:relative;overflow:hidden;background:#eee2d6}.product-image img{width:100%;height:100%;object-fit:cover;transition:.6s}.product:hover img{transform:scale(1.06)}.tag{position:absolute;top:14px;left:14px;background:#fff;color:var(--wine);padding:7px 10px;font-size:9px;letter-spacing:.8px}.wish{position:absolute;top:12px;right:12px;background:#ffffffeb;border:0;border-radius:50%;width:36px;height:36px;color:var(--wine)}.wish.active{background:var(--wine);color:#fff}.product-info{padding:20px 20px 22px}.product-info h3{font:600 20px "Noto Serif Bengali";margin:0 0 7px;color:var(--wine)}.product-info p{font-size:11px;color:var(--muted);line-height:1.8;min-height:40px;margin:0 0 17px}.product-bottom{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:14px}.product-bottom small{font-size:9px;color:var(--muted)}.quick{border:0;background:var(--wine);color:#fff;padding:10px 13px;font-size:10px}.empty{grid-column:1/-1;text-align:center;padding:50px;color:var(--muted)}
+.story{background:#efe5d9}.story-inner{max-width:1100px;margin:auto;padding:80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.story-image{height:380px;overflow:hidden}.story-image img{width:100%;height:100%;object-fit:cover}.story-copy p{color:var(--muted);font-size:13px;line-height:2}.story-points{display:flex;gap:24px;margin-top:25px;flex-wrap:wrap}.story-points b{font:20px "Playfair Display";color:var(--wine);display:block}.story-points small{font-size:9px;color:var(--muted)}
+.custom{background:var(--wine);color:white;text-align:center;padding:75px 20px}.custom .eyebrow{justify-content:center;color:#e0c28c}.custom .eyebrow:after{content:"";width:34px;height:1px;background:var(--gold)}.custom h2{color:white}.custom p{color:#eadbd4;font-size:12px;line-height:1.9;max-width:600px;margin:12px auto 25px}.custom .btn{border-color:#e2c58e;color:var(--wine);background:#e2c58e}
+.faq{max-width:850px;margin:auto}.faq details{border-bottom:1px solid var(--line);padding:19px 4px}.faq summary{cursor:pointer;list-style:none;font:600 15px "Noto Serif Bengali";color:var(--wine);display:flex;justify-content:space-between;gap:15px}.faq summary:after{content:"+";font:20px Poppins;color:var(--gold)}.faq details[open] summary:after{content:"−"}.faq p{font-size:12px;color:var(--muted);line-height:1.9;margin:14px 0 0}
+.contact{background:#241b1a;color:#fff;padding:65px 24px}.contact-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.contact h2{color:white}.contact p{font-size:12px;color:#c9bdb6;line-height:1.9}.contact-links{display:grid;gap:15px}.contact-link{display:flex;align-items:center;gap:14px;font-size:12px;color:#f8eee6}.contact-link i{width:38px;height:38px;border:1px solid #705a4f;border-radius:50%;display:grid;place-items:center;color:#d5b475}
+footer{background:#171211;color:#b9aaa2;text-align:center;padding:25px 15px;font-size:10px}footer strong{color:#e2c58e}.social{display:flex;justify-content:center;gap:10px;margin:20px}.social a{width:35px;height:35px;border:1px solid #5a4942;border-radius:50%;display:grid;place-items:center;color:#e2c58e}
+.overlay{position:fixed;inset:0;background:#170e0dcc;z-index:500;display:none;justify-content:flex-end}.overlay.show{display:flex}.drawer{background:var(--cream);height:100%;width:min(440px,100%);padding:25px;overflow:auto;animation:slide .25s}.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:17px}.drawer h3{font:24px "Playfair Display";color:var(--wine);margin:0}.close{border:0;background:transparent;color:var(--wine);font-size:22px}.cart-list{padding:15px 0}.cart-row{display:flex;gap:13px;padding:13px 0;border-bottom:1px solid var(--line);align-items:center}.cart-row img{width:70px;height:70px;object-fit:cover}.cart-row strong{font:15px "Noto Serif Bengali";color:var(--wine)}.cart-row small{display:block;color:var(--muted);font-size:10px}.remove{margin-left:auto;border:0;background:none;color:#a44}.drawer-note{font-size:11px;color:var(--muted);line-height:1.8}.full{width:100%;margin-top:15px}.modal{position:fixed;inset:0;background:#170e0dcc;z-index:600;display:none;place-items:center;padding:20px}.modal.show{display:grid}.modal-card{background:var(--cream);max-width:760px;width:100%;display:grid;grid-template-columns:1fr 1fr;position:relative}.modal-card img{width:100%;height:100%;min-height:340px;object-fit:cover}.modal-copy{padding:40px 30px}.modal-copy h3{font:26px "Noto Serif Bengali";color:var(--wine)}.modal-copy p{font-size:12px;color:var(--muted);line-height:2}.modal-x{position:absolute;right:12px;top:10px;border:0;background:white;border-radius:50%;width:34px;height:34px;color:var(--wine)}
+.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#29201d;color:#fff;padding:12px 18px;font-size:11px;z-index:900;transition:.3s}.toast.show{opacity:1;transform:translate(-50%,0)}.float-wa{position:fixed;right:22px;bottom:22px;z-index:90;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:#218c55;color:#fff;font-size:24px;box-shadow:0 8px 25px #0003}.backtop{position:fixed;left:22px;bottom:22px;z-index:90;width:40px;height:40px;border:0;border-radius:50%;background:var(--wine);color:#fff;display:none}.backtop.show{display:block}
+@keyframes slide{from{transform:translateX(30px);opacity:.5}to{transform:none;opacity:1}}
+@media(max-width:850px){.navlinks{display:none;position:absolute;top:78px;left:0;right:0;background:var(--cream);padding:22px;flex-direction:column;gap:20px;border-bottom:1px solid var(--line)}.navlinks.open{display:flex}.menu-btn{display:inline-grid}.hero{grid-template-columns:1fr;padding-top:50px;gap:20px}.hero-art{height:400px}.hero-photo{inset:0 35px 20px}.trust-inner{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:repeat(2,1fr)}.story-inner,.contact-inner{grid-template-columns:1fr;gap:30px}.story-image{height:300px}}
+@media(max-width:560px){.nav{height:68px;padding:0 15px}.brand-name{font-size:21px}.brand-mark{width:37px;height:37px}.navlinks{top:68px}.nav-actions{gap:5px}.icon-btn{width:35px;height:35px}.hero{padding:42px 19px 55px;min-height:0}.hero-art{height:330px}.art-stamp{width:76px;height:76px;font-size:10px}.art-label{font-size:15px;padding:14px}.hero-buttons .btn{width:100%}.trust-inner{padding:20px 12px;gap:18px 8px}.trust-item{justify-content:flex-start}.trust-item i{font-size:16px}.trust-item strong{font-size:10px}.trust-item small{font-size:8px}section.content{padding:65px 16px}.toolbar{align-items:stretch}.filters{width:100%}.filter{padding:8px 11px}.searchbox{width:100%}.products{grid-template-columns:1fr;gap:17px}.product-image{height:300px}.story-inner{padding:60px 19px}.story-image{height:260px}.modal-card{grid-template-columns:1fr;max-height:90vh;overflow:auto}.modal-card img{height:230px;min-height:230px}.modal-copy{padding:22px}.contact{padding:55px 20px}.float-wa{right:14px;bottom:14px}.backtop{left:14px;bottom:14px}}
 </style>
 </head>
-
 <body>
-
-<header>
-    <a href="#" class="logo-container">
-        <div class="logo-badge">AS</div>
-        <div class="logo-text">Agomoni Store</div>
-    </a>
-
-    <nav>
-        <a href="#about">About</a>
-        <a href="product.html">Products</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
-
-<section class="hero">
-    <h1>Welcome to <span>Agomoni Store</span></h1>
-    <p>Premium Gift Items, Handmade Crafts & Creative Products tailored with premium elegance.</p>
-    <a href="#products" class="btn">View Products</a>
-</section>
-
-<section id="about">
-    <h2 class="section-title">About Us</h2>
-
-    <div class="about">
-        <div class="about-img-wrapper">
-            <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=800" alt="Store">
-        </div>
-
-        <div>
-            <h3>Agomoni Store</h3>
-            <p>
-                Agomoni Store is a trusted destination for premium gift items,
-                fabric painting products, handmade crafts and custom creations.
-                Our goal is to provide quality products with creative designs that touch your soul.
-            </p>
-
-            <div class="features-grid">
-                <div class="feature-item">✨ Quality Products</div>
-                <div class="feature-item">🎨 Custom Orders</div>
-                <div class="feature-item">💎 Affordable Pricing</div>
-                <div class="feature-item">🚀 Fast Delivery</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="products">
-    <h2 class="section-title">Our Products</h2>
-
-    <div class="products">
-        <div class="card">
-            <div class="card-img-container">
-                <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600" alt="Gift Items">
-            </div>
-            <div class="card-body">
-                <h3>Gift Items</h3>
-                <p>Beautiful, curated gift collections for every celebration.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-img-container">
-                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600" alt="Fabric Painting">
-            </div>
-            <div class="card-body">
-                <h3>Fabric Painting</h3>
-                <p>Custom hand-painted aesthetic designs with pure premium fabrics.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-img-container">
-                <img src="https://images.unsplash.com/photo-1503602642458-232111445657?w=600" alt="Handmade Crafts">
-            </div>
-            <div class="card-body">
-                <h3>Handmade Crafts</h3>
-                <p>Unique, highly detailed creative handmade products.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="services">
-    <h2 class="section-title">Our Services</h2>
-
-    <div class="services">
-        <div class="service">
-            <div class="service-icon">🎨</div>
-            <h3>Custom Orders</h3>
-            <p>Personalized gifts and crafts according to your choices.</p>
-        </div>
-
-        <div class="service">
-            <div class="service-icon">📦</div>
-            <h3>Bulk Orders</h3>
-            <p>Special premium pricing and attention for corporate or bulk purchases.</p>
-        </div>
-
-        <div class="service">
-            <div class="service-icon">🚚</div>
-            <h3>Home Delivery</h3>
-            <p>Fast, secured and reliable doorstep delivery service anywhere.</p>
-        </div>
-    </div>
-</section>
-
-<section id="contact">
-    <h2 class="section-title">Contact Us</h2>
-
-    <div class="contact">
-        <div class="contact-info">
-            <p>📞 +91 8145994741</p>
-            <p>📧 agomonistore@gmail.com</p>
-        </div>
-
-        <a href="https://wa.me/918145994741" class="whatsapp-btn">
-            💬 WhatsApp Order
-        </a>
-    </div>
-</section>
-
-<footer>
-    © 2025 Agomoni Store | All rights reserved.
-</footer>
-
-</body>
-</html>
+<div class="top-progress" id="progress"></div>
+<div class="announcement">HANDMADE WITH LOVE · PERSONALISATION AVAILABLE · MADE FOR YOUR SPECIAL MOMENTS</div>
+<header><nav class="nav">
+<a class="brand" href="#home"><span class="brand-mark"><i class="fa-solid fa-fan"></i></span><span><span class="brand-name">Agomoni Store</span><small>ART • CRAFT • EMOTION</small></span></a>
+<div class="navlinks" id="navlinks"><a href="#home">HOME</a><a href="#collection">COLLECTION</a><a href="#story">OUR STORY</a><a href="#custom">CUSTOM ORDERS</a><a href="#contact">CONTACT</a></div>
+<div class="nav-actions"><button class="icon-btn" id="wishOpen" aria-label="Wishlist"><i class="fa-regular fa-heart"></i><span class="count" id="wishCount">0</span></button><button class="icon-btn" id="cartOpen" aria-label="Order list"><i class="fa-solid fa-bag-shopping"></i><span class="count" id="cartCount">0</span></button><button class="icon-btn menu-btn" id="menuBtn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button></div>
+</nav></header>
+<main>
+<section class="hero" id="home"><div class="hero-copy"><div class="eyebrow">THE ART OF GIFTING</div><h1>Little things,<br><em>lasting emotions.</em><span>আপনার পছন্দ, আমাদের শিল্প।</span></h1><p>প্রতিটি সৃষ্টির মধ্যে থাকে যত্ন, ভালোবাসা আর নিজস্বতার ছোঁয়া। আপনার বিশেষ মুহূর্তকে আরও সুন্দর করে তুলতে বেছে নিন Agomoni Store-এর হাতে তৈরি ও কাস্টমাইজড উপহার।</p><div class="hero-buttons"><a class="btn primary" href="#collection">Explore Collection <i class="fa-solid fa-arrow-right"></i></a><a class="btn outline" href="#custom">Create Your Own</a></div><div class="hero-note">✦ THOUGHTFULLY MADE · BEAUTIFULLY YOURS</div></div>
+<div class="hero-art"><div class="hero-photo"><img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=85&w=1100&auto=format&fit=crop" alt="Handcrafted jewellery and accessories"></div><div class="art-stamp">MADE<br>WITH<br>LOVE ✦</div><div class="art-label">A little piece of art, just for you.</div></div></section>
+<div class="trust"><div class="trust-inner"><div class="trust-item"><i class="fa-solid fa-hand-sparkles"></i><span><strong>Handcrafted</strong><small>Made with care</small></span></div><div class="trust-item"><i class="fa-solid fa-palette"></i><span><strong>Personalised</strong><small>Your idea, our craft</small></span></div><div class="trust-item"><i class="fa-solid fa-gift"></i><span><strong>Made for Gifting</strong><small>For every occasion</small></span></div><div class="trust-item"><i class="fa-solid fa-heart"></i><span><strong>Made with Love</strong><small>Every detail matters</small></span></div></div></div>
+<section class="content" id="collection"><div class="section-head"><div class="eyebrow">CURATED FOR YOU</div><h2>Our Signature Collection</h2><p class="bn">হাতে তৈরি শিল্পের এক বিশেষ ঠিকানা</p></div>
+<div class="toolbar"><div class="filters"><button class="filter active" data-filter="all">All Items</button><button class="filter" data-filter="jewellery">Jewellery</button><button class="filter" data-filter="handmade">Handmade Art</button><button class="filter" data-filter="gift">Gift Ideas</button></div><label class="searchbox"><i class="fa-solid fa-magnifying-glass"></i><input id="search" placeholder="Search collection..." aria-label="Search collection"></label></div>
+<div class="products" id="products">
+<article class="product" data-category="jewellery" data-name="টেরাকোটা কানের দুল terracotta earrings"><div class="product-image"><img src="Dul.jpeg" alt="Terracotta earrings" loading="lazy"><span class="tag">BESTSELLER</span><button class="wish" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button></div><div class="product-info"><h3>টেরাকোটা কানের দুল</h3><p>আকর্ষণীয় ডিজাইনের হালকা ও আরামদায়ক কানের দুল। সম্পূর্ণ হাতে তৈরি।</p><div class="product-bottom"><small>HANDCRAFTED</small><button class="quick" data-title="টেরাকোটা কানের দুল" data-desc="আকর্ষণীয় ডিজাইনের হালকা ও আরামদায়ক কানের দুল। সম্পূর্ণ হাতে তৈরি।" data-img="Dul.jpeg">View Details</button></div></div></article>
+<article class="product" data-category="jewellery" data-name="এক্সক্লুসিভ নেকলেস সেট necklace set"><div class="product-image"><img src="Nack.jpeg" alt="Exclusive necklace set" loading="lazy"><span class="tag">EXCLUSIVE</span><button class="wish" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button></div><div class="product-info"><h3>এক্সক্লুসিভ নেকলেস সেট</h3><p>শাড়ি বা কুর্তির সঙ্গে মানানসই আভিজাত্যপূর্ণ ডিজাইনার নেকলেস।</p><div class="product-bottom"><small>DESIGNED WITH CARE</small><button class="quick" data-title="এক্সক্লুসিভ নেকলেস সেট" data-desc="শাড়ি বা কুর্তির সঙ্গে মানানসই আভিজাত্যপূর্ণ ডিজাইনার নেকলেস।" data-img="Nack.jpeg">View Details</button></div></div></article>
+<article class="product" data-category="handmade gift" data-name="ইউনিক হ্যান্ডমেড ডিজাইন handmade art"><div class="product-image"><img src="hand.jpeg" alt="Unique handmade art" loading="lazy"><span class="tag">ONE OF A KIND</span><button class="wish" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button></div><div class="product-info"><h3>ইউনিক হ্যান্ডমেড ডিজাইন</h3><p>প্রতিটি সৃষ্টি নিজের মতো অনন্য—আপনার পছন্দমতো কাস্টমাইজ করার সুযোগ।</p><div class="product-bottom"><small>100% HANDMADE</small><button class="quick" data-title="ইউনিক হ্যান্ডমেড ডিজাইন" data-desc="প্রতিটি সৃষ্টি নিজের মতো অনন্য—আপনার পছন্দমতো কাস্টমাইজ করার সুযোগ।" data-img="hand.jpeg">View Details</button></div></div></article>
+</div></section>
+<div class="story" id="story"><div class="story-inner"><div class="story-image"><img src="https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?q=85&w=1000&auto=format&fit=crop" alt="Handmade craft process" loading="lazy"></div><div class="story-copy"><div class="eyebrow">A STORY IN EVERY DETAIL</div><h2>Not just a product.<br>A personal touch.</h2><p class="bn">Agomoni Store-এ আমরা বিশ্বাস করি, হাতে তৈরি জিনিসের সৌন্দর্য শুধু তার নকশায় নয়—তার পিছনে থাকা সময়, যত্ন আর অনুভূতিতেও। তাই আপনার ভাবনাকে গুরুত্ব দিয়ে তৈরি করি বিশেষ কিছু।</p><p>From thoughtful gifting to personalised creations, we bring your ideas to life with a little extra love.</p><div class="story-points"><div><b>Handmade</b><small>Crafted with care</small></div><div><b>Personal</b><small>Made around your idea</small></div><div><b>Meaningful</b><small>Gifts with a story</small></div></div></div></div></div>
+<section class="custom" id="custom"><div class="eyebrow">MADE JUST FOR YOU</div><h2>Have an idea in mind?</h2><p class="bn">আপনার পছন্দের রং, নাম, নকশা কিংবা বিশেষ কোনো ভাবনা—আমাদের জানান। আপনার অনুষ্ঠানের জন্য কাস্টমাইজড উপহার ও সাজসজ্জার অর্ডার নিয়ে কথা বলুন।</p><a class="btn" id="customWhatsApp" href="https://wa.me/918145994741?text=Hello%20Agomoni%20Store%2C%20I%20want%20to%20discuss%20a%20custom%20order." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Discuss Your Design</a></section>
+<section class="content"><div class="section-head"><div class="eyebrow">NEED TO KNOW</div><h2>Frequently Asked Questions</h2><p class="bn">আপনার কিছু সাধারণ প্রশ্নের উত্তর</p></div><div class="faq">
+<details><summary>কাস্টমাইজড অর্ডার কীভাবে দেব?</summary><p class="bn">WhatsApp-এ আপনার পছন্দের ডিজাইন, রং, লেখা বা রেফারেন্স ছবি পাঠান। বিস্তারিত আলোচনা করে অর্ডার নিশ্চিত করা হবে।</p></details>
+<details><summary>অর্ডারের আগে কি ডিজাইন নিয়ে কথা বলা যাবে?</summary><p class="bn">অবশ্যই। অর্ডার দেওয়ার আগে আপনার ভাবনা ও পছন্দ নিয়ে আমাদের সঙ্গে কথা বলতে পারেন।</p></details>
+<details><summary>দাম ও ডেলিভারির সময় কীভাবে জানব?</summary><p class="bn">প্রতিটি ডিজাইন ও কাস্টমাইজেশনের উপর দাম এবং প্রস্তুতির সময় নির্ভর করতে পারে। নির্দিষ্ট তথ্যের জন্য সরাসরি যোগাযোগ করুন।</p></details>
+<details><summary>কীভাবে অর্ডার করব?</summary><p class="bn">পছন্দের পণ্য বেছে “View Details” বা “Order List”-এ যোগ করে WhatsApp-এ অর্ডারের বিবরণ পাঠাতে পারেন।</p></details>
+</div></section>
+<section class="contact" id="contact"><div class="contact-inner"><div><div class="eyebrow">LET'S CONNECT</div><h2>Let's make something beautiful.</h2><p class="bn">আপনার প্রশ্ন, পছন্দ বা নতুন কোনো পরিকল্পনা নিয়ে আমাদের সঙ্গে যোগাযোগ করুন। Agomoni Store-এর সঙ্গে আপনার ভাবনার শুরু হোক।</p></div><div class="contact-links"><a class="contact-link" href="tel:+918145994741"><i class="fa-solid fa-phone"></i><span>81459 94741 <small style="display:block;color:#a99a91">Call us</small></span></a><a class="contact-link" href="https://wa.me/918145994741" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp <small style="display:block;color:#a99a91">Chat for orders</small></span></a><a class="contact-link" href="mailto:agomonistore@gmail.com"><i class="fa-regular fa-envelope"></i><span>agomonistore@gmail.com <small style="display:block;color:#a99a91">Email us</small></span></a></div></div></section>
+</main>
+<footer><div class="brand" style="justify-content:center;color:#e2c58e"><span class="brand-mark"><i class="fa-solid fa-fan"></i></span><span class="brand-name">Agomoni Store</span></div><div class="social"><a href="https://www.facebook.com/" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a href="https://www.instagram.com/agomoni.store/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></div><p>© 2026 Agomoni Store. All rights reserved.</p><p>Made with 💖 by <strong>Subhadip Satpati</strong></p></footer>
+<a class="float-wa" href="https://wa.me/918145994741" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a><button class="backtop" id="backtop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<div class="overlay" id="cartOverlay"><aside class="drawer"><div class="drawer-head"><h3>Your Order List</h3><button class="close" data-close="cartOverlay">×</button></div><div class="cart-list" id="cartList"></div><p class="drawer-note">পণ্যের দাম, কাস্টমাইজেশন ও ডেলিভারির বিস্তারিত WhatsApp-এ নিশ্চিত করা হবে। এই তালিকাটি অর্ডারের অনুরোধ পাঠানোর জন্য।</p><button class="btn primary full" id="sendOrder"><i class="fa-brands fa-whatsapp"></i> Send Order on WhatsApp</button></aside></div>
+<div class="modal" id="quickModal"><div class="modal-card"><button class="modal-x" data-close="quickModal">×</button><img id="modalImg" src="" alt=""><div class="modal-copy"><div class="eyebrow">AGOMONI STORE</div><h3 id="modalTitle"></h3><p id="modalDesc"></p><p>For availability, price and customisation details, contact us directly.</p><button class="btn primary" id="modalAdd">Add to Order List</button></div></div></div>
+<div class="toast" id="toast"></div>
+<script>
+const WA='918145994741';
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+let cart=[],wishlist=new Set(),currentProduct=null;
+function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2200)}
+function updateCounts(){$('#cartCount').textContent=cart.length;$('#wishCount').textContent=wishlist.size}
+function filterProducts(){const f=$('.filter.active')?.dataset.filter||'all',q=$('#search').value.toLowerCase().trim();let shown=0;$$('.product').forEach(p=>{const ok=(f==='all'||p.dataset.category.split(' ').includes(f))&&p.dataset.name.toLowerCase().includes(q);p.style.display=ok?'':'none';if(ok)shown++});let empty=$('#noResults');if(!shown){if(!empty){empty=document.createElement('div');empty.id='noResults';empty.className='empty';empty.textContent='কোনো পণ্য পাওয়া যায়নি।';$('#products').append(empty)}}else empty?.remove()}
+$$('.filter').forEach(b=>b.addEventListener('click',()=>{$$('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');filterProducts()}));$('#search').addEventListener('input',filterProducts);
+$$('.wish').forEach((b,i)=>b.addEventListener('click',()=>{const p=b.closest('.product'),name=p.querySelector('h3').textContent;if(wishlist.has(name)){wishlist.delete(name);b.classList.remove('active');b.innerHTML='<i class="fa-regular fa-heart"></i>';toast('Wishlist থেকে সরানো হয়েছে')}else{wishlist.add(name);b.classList.add('active');b.innerHTML='<i class="fa-solid fa-heart"></i>';toast('Wishlist-এ যোগ হয়েছে')}updateCounts()}));
+function addToCart(p){if(!cart.some(x=>x.name===p.name))cart.push(p);updateCounts();renderCart();toast('Order list-এ যোগ হয়েছে')}
+$$('.quick').forEach(b=>b.addEventListener('click',()=>{currentProduct={name:b.dataset.title,desc:b.dataset.desc,img:b.dataset.img};$('#modalTitle').textContent=currentProduct.name;$('#modalDesc').textContent=currentProduct.desc;$('#modalImg').src=currentProduct.img;$('#quickModal').classList.add('show')}));
+$('#modalAdd').addEventListener('click',()=>{if(currentProduct)addToCart(currentProduct);$('#quickModal').classList.remove('show')});
+function renderCart(){const el=$('#cartList');if(!cart.length){el.innerHTML='<p class="empty">আপনার order list এখনো খালি।</p>';return}el.innerHTML=cart.map((p,i)=>`<div class="cart-row"><img src="${p.img}" alt=""><div><strong>${p.name}</strong><small>Price & availability on enquiry</small></div><button class="remove" data-remove="${i}" aria-label="Remove">×</button></div>`).join('');$$('[data-remove]').forEach(b=>b.addEventListener('click',()=>{cart.splice(+b.dataset.remove,1);updateCounts();renderCart()}))}
+$('#cartOpen').addEventListener('click',()=>$('#cartOverlay').classList.add('show'));
+$('#wishOpen').addEventListener('click',()=>{if(!wishlist.size){toast('আপনার wishlist এখনো খালি');return}const names=[...wishlist].join(', ');window.open(`https://wa.me/${WA}?text=${encodeURIComponent('Hello Agomoni Store, I am interested in: '+names)}`,'_blank')});
+$('#sendOrder').addEventListener('click',()=>{if(!cart.length){toast('আগে পণ্য যোগ করুন');return}const msg='Hello Agomoni Store! I would like to enquire about these products:\n'+cart.map((p,i)=>(i+1)+'. '+p.name).join('\n')+'\nPlease share price, availability and delivery details.';window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank')});
+$$('[data-close]').forEach(b=>b.addEventListener('click',()=>$('#'+b.dataset.close).classList.remove('show')));
+['cartOverlay','quickModal'].forEach(id=>$('#'+id).addEventListener('click',e=>{if(e.target.id===id)e.currentTarget.classList.remove('show')}));
+$('#menuBtn').addEventListener('click',()=>$('#navlinks').classList.toggle('open'));$$('#navlinks a').forEach(a=>a.addEventListener('click',()=>$('#navlinks').classList.remove('open')));
+window.addEventListener('scroll',()=>{const d=document.documentElement;$('#progress').style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%';$('#backtop').classList.toggle('show',d.scrollTop>500)});
+$('#backtop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body></html>
